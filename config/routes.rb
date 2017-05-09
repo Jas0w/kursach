@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :orders
   resources :cars
   resources :drivers
   resources :tariffs
+=======
+>>>>>>> 4681a207acfef92ab970235c4f96b4c3944db4e7
   resources :role_users
   resources :roles
   resources :password_resets
