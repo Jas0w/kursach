@@ -1,0 +1,13 @@
+=breadcrumb_tag do
+  %li.active
+    = t('app.cars.edit')
+  %li
+    = link_to(@car.id, @car)
+    
+%h1= t('app.cars.edit')
+
+= render 'form'
+
+= link_to 'Показать', @car
+\|
+= link_to 'Назад', cars_path

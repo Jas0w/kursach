@@ -1,0 +1,107 @@
+ru:
+  app:
+    name: Базовое приложение
+    company:
+      short_name: МПУ
+      department: Кафедра
+    users:
+      index: Список пользователей
+      new-button: Новый пользователь 
+      edit: Редактирование пользователя
+      new: Создание пользователя
+    roles:
+      index: Список возможных ролей пользователей
+      new-button: Новая роль
+      edit: Редактирование роли
+      new: Создание роли
+    drivers:
+      index: Список возможных водителей
+      new-button: Новый водитель
+      edit: Редактирование водителя
+      new: Создание водителя
+    tariffs:
+      index: Список возможных тарифов
+      new-button: Новый тариф
+      edit: Редактирование тарифа
+      new: Создание тарифа
+    orders:
+      index: Список возможных заказов
+      new-button: Новый заказ
+      edit: Редактирование заказа
+      new: Создание заказа
+    cars:
+      index: Список возможных машин 
+      new-button: Новая машина 
+      edit: Редактирование машин
+      new: Создание машин
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+    sure: Действительно удалить?      
+  
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+      car: Машина
+      driver: Водитель
+      tariff: Тариф
+      order: Заказ
+    attributes:
+      user:
+        email: Пользовательское имя/электронная
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      driver:
+        fn: Имя
+        ln: Фамилия
+        sn: Отчество
+        birthday: Дата рождения
+        tin: ИНН
+        passport_series: Серия паспорта
+        passport_number: Номер паспорта
+      car:
+        driver: Водитель
+        model: Модель
+        class_of_car: Класс машины
+        car_number: Номер машины
+        color: Цвет машины
+        year: Год выпуска
+      tariff:
+        name: Название
+        times_of_day: Время суток
+        range: Расстояние
+        ppk: Цена за километр
+      order:
+        tariff: Тариф
+        car: Машина
+        date_of_order: Дата заказа
+        time_of_order: Время заказа
+        departure_address: Откуда 
+        end_address: Куда
+        passengers: Кол-во пассажиров
+        distance: Примерное расстояние
+    errors:
+      models:
+        person:
+          attributes:
+            snils:
+              check_sum: имеет неправильную контрольную сумму
+          

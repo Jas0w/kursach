@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver_id: 
+  model: MyString
+  class_of_car: MyString
+  car_number: MyString
+  color: MyString
+  year: MyString
+
+two:
+  driver_id: 
+  model: MyString
+  class_of_car: MyString
+  car_number: MyString
+  color: MyString
+  year: MyString

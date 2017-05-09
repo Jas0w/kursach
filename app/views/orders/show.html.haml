@@ -1,0 +1,29 @@
+=breadcrumb_tag do
+  %li.active
+    = @order.id
+  %li
+    = link_to 'Заказы', orders_path
+  %li
+    Администрирование
+    
+%h1
+  = @order.id
+
+%dl
+  %dt= Order.human_attribute_name(:tariff)
+  %dd= @order.tariff
+  %dt= Order.human_attribute_name(:car)
+  %dd= @order.car
+  %dt= Order.human_attribute_name(:date_of_order)
+  %dd= @order.date_of_order
+  %dt= Order.human_attribute_name(:time_of_order)
+  %dd= @order.time_of_order
+  %dt= Order.human_attribute_name(:departure_address)
+  %dd= @order.departure_address
+  %dt= Order.human_attribute_name(:end_address)
+  %dd= @order.end_address
+  %dt= Order.human_attribute_name(:passengers)
+  %dd= @order.passengers
+  %dt= Order.human_attribute_name(:distance)
+  %dd= @order.distance
+

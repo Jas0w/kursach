@@ -1,0 +1,8 @@
+=breadcrumb_tag do
+  %li.active
+    = t('app.cars.new')
+    
+%h1= t('app.cars.new')
+= render 'form'
+
+= link_to 'Назад', drivers_path

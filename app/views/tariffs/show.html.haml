@@ -1,0 +1,22 @@
+=breadcrumb_tag do
+  %li.active
+    = @tariff.name
+  %li
+    = link_to 'Тарифы', tariffs_path
+  %li
+    Администрирование
+    
+%h1
+  = @tariff.name
+
+%dl
+  %dt= Tariff.human_attribute_name(:name)
+  %dd= @tariff.name
+  %dt= Tariff.human_attribute_name(:times_of_day)
+  %dd= @tariff.times_of_day
+  %dt= Tariff.human_attribute_name(:range)
+  %dd= @tariff.range
+  %dt= Tariff.human_attribute_name(:ppk)
+  %dd= @tariff.ppk
+
+

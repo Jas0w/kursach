@@ -1,0 +1,29 @@
+=breadcrumb_tag do
+  %li.active
+    = @driver.fn
+    = @driver.ln
+  %li
+    = link_to 'Водители', drivers_path
+  %li
+    Администрирование
+    
+%h1
+  = @driver.fn
+  = @driver.ln
+
+%dl
+  %dt= Driver.human_attribute_name(:fn)
+  %dd= @driver.fn
+  %dt= Driver.human_attribute_name(:ln)
+  %dd= @driver.ln
+  %dt= Driver.human_attribute_name(:sn)
+  %dd= @driver.sn
+  %dt= Driver.human_attribute_name(:birthday)
+  %dd= @driver.birthday
+  %dt= Driver.human_attribute_name(:tin)
+  %dd= @driver.tin
+  %dt= Driver.human_attribute_name(:passport_series)
+  %dd= @driver.passport_series
+  %dt= Driver.human_attribute_name(:passport_number)
+  %dd= @driver.passport_number
+

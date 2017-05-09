@@ -1,0 +1,22 @@
+= form_for @tariff do |f|
+  - if @tariff.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tariff.errors.count, "error")} prohibited this tariff from being saved:"
+      %ul
+        - @tariff.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :times_of_day
+    = f.select :times_of_day, ['день','ночь']
+  .field
+    = f.label :range
+    = f.select :range, ['в пределах МКАД','за МКАД', 'Подмосковье']
+  .field
+    = f.label :ppk
+    = f.text_field :ppk
+  .actions
+    = f.submit nil, class: 'btn btn-primary'

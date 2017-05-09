@@ -1,0 +1,26 @@
+=breadcrumb_tag do
+  %li.active
+    = @car.id
+  %li
+    = link_to 'Автомобили', cars_path
+  %li
+    Администрирование
+    
+%h1
+  = @car.id
+
+%dl
+  %dt= Car.human_attribute_name(:driver)
+  %dd= @car.driver
+  %dt= Car.human_attribute_name(:model)
+  %dd= @car.model
+  %dt= Car.human_attribute_name(:class_of_car)
+  %dd= @car.class_of_car
+  %dt= Car.human_attribute_name(:car_number)
+  %dd= @car.car_number
+  %dt= Car.human_attribute_name(:color)
+  %dd= @car.color
+  %dt= Car.human_attribute_name(:year)
+  %dd= @car.year
+
+

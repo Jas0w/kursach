@@ -1,0 +1,41 @@
+=breadcrumb_tag do
+  %li.active
+    Тарифы
+  %li
+    Администрирование
+
+%h1= t('app.tariffs.index')
+
+%table.table.table-hover.table-striped.center
+  %caption
+    .pull-right
+      = link_to t('app.tariffs.new-button'), new_tariff_path, class: 'btn btn-primary'
+  %thead
+    %tr
+      %th= Tariff.human_attribute_name(:name)
+      %th= Tariff.human_attribute_name(:times_of_day)
+      %th= Tariff.human_attribute_name(:range)
+      %th= Tariff.human_attribute_name(:ppk)
+      %th.p50
+      %th.p50
+      %th.p50
+
+  %tbody
+    - @tariffs.each do |tariff|
+      %tr
+        %td= tariff.name
+        %td= tariff.times_of_day
+        %td= tariff.range
+        %td= tariff.ppk
+        %td
+          = link_to tariff, class: 'btn btn-success' do
+            = fa_icon :eye
+        %td
+          = link_to edit_tariff_path(tariff), class: 'btn btn-info' do
+            = fa_icon :edit
+        %td
+          = link_to tariff, :method => :delete, :data => { :confirm => t('helpers.sure') }, class: 'btn btn-danger' do
+            = fa_icon :times
+
+
+
