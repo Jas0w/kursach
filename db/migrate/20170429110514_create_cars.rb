@@ -15,7 +15,7 @@ class CreateCars < ActiveRecord::Migration
     
     reversible do |dir|
       dir.up do
-        execute("ALTER TABLE cars ADD CONSTRAINT class_check CHECK(class_of_car IN ('бизнесс', 'эконом'))")
+        execute("ALTER TABLE cars ADD CONSTRAINT class_check CHECK(class_of_car IN ('бизнес', 'эконом'))")
       end
       dir.down do
         execute("ALTER TABLE cars DROP CONSTRAINT class_check")

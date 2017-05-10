@@ -6,49 +6,68 @@
         - @driver.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :fn
-    = f.text_field :fn
-  .field
-    = f.label :ln
-    = f.text_field :ln
-  .field
-    = f.label :sn
-    = f.text_field :sn
-  .field
-    = f.label :birthday
-    = f.date_select :birthday, { start_year: Date.today.year - 65, :end_year => Date.today.year - 18 }
-  .field
-    = f.label :tin
-    = f.text_field :tin
-  .field
-    = f.label :passport_series
-    = f.text_field :passport_series
-  .field
-    = f.label :passport_number
-    = f.text_field :passport_number
+  .row
+    .col-md-6
+      .form-group
+        = f.label :fn
+        = f.text_field :fn, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :ln
+        = f.text_field :ln, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :sn
+        = f.text_field :sn, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :birthday
+        .input-group.date.datepicker
+          = f.text_field(:birthday, value: lnil(f.object.birthday),
+          class: 'form-control')
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+    .col-md-6
+      .form-group
+        = f.label :tin
+        = f.text_field :tin, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :passport_series
+        = f.text_field :passport_series, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :passport_number
+        = f.text_field :passport_number, class: 'form-control'
+
 
   = f.fields_for :car do |car_form|
-    .row  
+    .row
       .col-md-6
-        .form-group
-          = car_form.label :model 
-          = car_form.text_field :model, class: 'form-control'
-      .col-md-6
-        .form-group
-          = car_form.label :class_of_car
-          = car_form.select(:class_of_car, options_for_select(["бизнес", "эконом"]))
-      .col-md-6
-        .form-group
-          = car_form.label :car_number
-          = car_form.text_field :car_number, class: 'form-control'
-      .col-md-6
-        .form-group
-          = car_form.label :color
-          = car_form.text_field :color, class: 'form-control'
-      .col-md-6
-        .form-group
-          = car_form.label :year
-          = car_form.text_field :year, class: 'form-control'
+        .panel.panel-success
+          .panel-heading 
+            Машина
+          .panel-body
+            .row  
+              .col-md-6
+                .form-group
+                  = car_form.label :model 
+                  = car_form.text_field :model, class: 'form-control'
+              .col-md-6
+                .form-group
+                  = car_form.label :class_of_car
+                  = car_form.select(:class_of_car, options_for_select(["бизнес", "эконом"]))
+              .col-md-6
+                .form-group
+                  = car_form.label :car_number
+                  = car_form.text_field :car_number, class: 'form-control'
+              .col-md-6
+                .form-group
+                  = car_form.label :color
+                  = car_form.text_field :color, class: 'form-control'
+              .col-md-6
+                .form-group
+                  = car_form.label :year
+                  = car_form.text_field :year, class: 'form-control'
   .actions
     = f.submit nil, class: 'btn btn-primary'
