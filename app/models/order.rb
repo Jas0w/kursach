@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
-  belongs_to :tariff
+  belongs_to :tariff, dependent: :destroy, inverse_of: :orders
+  accepts_nested_attributes_for :tariff, allow_destroy: true
+
   belongs_to :car
 
   validates :date_of_order, :time_of_order, :departure_address, :end_address, :passengers, :distance, presence: true

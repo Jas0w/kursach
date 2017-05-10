@@ -1,34 +1,72 @@
 = form_for @order do |f|
-  - if @order.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      %ul
-        - @order.errors.full_messages.each do |message|
-          %li= message
+  = error_messages_for @order
+  .row
+    .col-md-6
+      .form-group
+        = f.label :car_id
+        = f.text_field :car_id, class: 'form-control'
+        = f.error_messages_for(:car_id)
+    .col-md-6
+      .form-group
+        = f.label :date_of_order
+        = f.date_select :date_of_order , class: 'form-control'
+        = f.error_messages_for(:date_of_order)
+    .col-md-6
+      .form-group
+        = f.label :time_of_order
+        = f.time_select :time_of_order, class: 'form-control'
+        = f.error_messages_for(:time_of_order)
+    .col-md-6
+      .form-group
+        = f.label :departure_address
+        = f.text_field :departure_address, class: 'form-control'
+        = f.error_messages_for(:departure_address)
+    .col-md-6
+      .form-group
+        = f.label :end_address
+        = f.text_field :end_address, class: 'form-control'
+        = f.error_messages_for(:end_address)
+    .col-md-6
+      .form-group
+        = f.label :passengers
+        = f.number_field :passengers, class: 'form-control'
+        = f.error_messages_for(:passengers)
+    .col-md-6
+      .form-group
+        = f.label :distance
+        = f.text_field :distance, class: 'form-control'
+        = f.error_messages_for(:distance)
 
-  .field
-    = f.label :tariff
-    = f.text_field :tariff
-  .field
-    = f.label :car
-    = f.text_field :car
-  .field
-    = f.label :date_of_order
-    = f.date_select :date_of_order
-  .field
-    = f.label :time_of_order
-    = f.time_select :time_of_order
-  .field
-    = f.label :departure_address
-    = f.text_field :departure_address
-  .field
-    = f.label :end_address
-    = f.text_field :end_address
-  .field
-    = f.label :passengers
-    = f.number_field :passengers
-  .field
-    = f.label :distance
-    = f.text_field :distance
-  .actions
+
+  - if @current_role_user.present? and @current_role_user.is_admin?
+    = f.fields_for :tariffs do |fr|
+      = fr.hidden_field :id
+      .col-md-6
+        .panel.panel-success
+          .panel-heading 
+            Tariff
+          .panel-body
+            .row
+              .col-md-6
+                .form-group
+                  = fr.label :tariff_id
+                  = fr.text_field :tariff_id, class: 'form-control'
+              .col-md-6
+                .form-group
+                  = fr.label :name
+                  = fr.text_field :name, class: 'form-control'
+              .col-md-6
+                .form-group
+                  = fr.label :times_of_day
+                  = fr.text_field :times_of_day, class: 'form-control'
+              .col-md-6
+                .form-group
+                  = fr.label :range
+                  = fr.text_field :range, class: 'form-control'
+              .col-md-6
+                .form-group
+                  = fr.label :ppk
+                  = fr.text_field :ppk, class: 'form-control'
+  .form-actions
     = f.submit nil, class: 'btn btn-primary'
+
