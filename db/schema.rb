@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170501085108) do
   end
 
   add_index "cars", ["car_number"], name: "index_cars_on_car_number", unique: true, using: :btree
-  add_index "cars", ["driver_id"], name: "index_cars_on_driver_id", using: :btree
+  add_index "cars", ["driver_id"], name: "index_cars_on_driver_id", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false

@@ -1,7 +1,6 @@
 class CreateDrivers < ActiveRecord::Migration
   def change
     create_table :drivers do |t|
-      t.references :car, index: true, foreign_key: true
       t.string :fn, 			null: false
       t.string :ln,			null: false
       t.string :sn			

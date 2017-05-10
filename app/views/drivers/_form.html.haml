@@ -27,5 +27,28 @@
   .field
     = f.label :passport_number
     = f.text_field :passport_number
+
+  = f.fields_for :car do |car_form|
+    .row  
+      .col-md-6
+        .form-group
+          = car_form.label :model 
+          = car_form.text_field :model, class: 'form-control'
+      .col-md-6
+        .form-group
+          = car_form.label :class_of_car
+          = car_form.select(:class_of_car, options_for_select(["бизнес", "эконом"]))
+      .col-md-6
+        .form-group
+          = car_form.label :car_number
+          = car_form.text_field :car_number, class: 'form-control'
+      .col-md-6
+        .form-group
+          = car_form.label :color
+          = car_form.text_field :color, class: 'form-control'
+      .col-md-6
+        .form-group
+          = car_form.label :year
+          = car_form.text_field :year, class: 'form-control'
   .actions
     = f.submit nil, class: 'btn btn-primary'
