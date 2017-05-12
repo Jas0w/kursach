@@ -15,25 +15,25 @@ ru:
       edit: Редактирование роли
       new: Создание роли
     drivers:
-      index: Список возможных водителей
+      index: Список водителей
       new-button: Новый водитель
       edit: Редактирование водителя
       new: Создание водителя
     tariffs:
-      index: Список возможных тарифов
+      index: Список тарифов
       new-button: Новый тариф
       edit: Редактирование тарифа
       new: Создание тарифа
     orders:
-      index: Список возможных заказов
+      index: Список заказов
       new-button: Новый заказ
       edit: Редактирование заказа
       new: Создание заказа
     cars:
-      index: Список возможных машин 
+      index: Список машин 
       new-button: Новая машина 
       edit: Редактирование машин
-      new: Создание машин
+      new: Создание машины
   helpers:
     submit:
       create: Сохранить
@@ -59,6 +59,18 @@ ru:
       index: Список возможных ролей пользователей
       edit: Редактирование роли
       new: Новая роль
+    orders:
+      index: Список заказов
+      edit: Редактирование заказа
+      new: Новый заказ
+    drivers:
+      index: Список водителей
+      edit: Редактирование водителя
+      new: Новый водитель
+    cars:
+      index: Список машин
+      edit: Редактирование машин
+      new: Новая машина
   views:
     pagination:
       first: ⇤
@@ -73,9 +85,6 @@ ru:
       driver: Водитель
       tariff: Тариф
       order: Заказ
-    attributes:
-      user:
-        email: Пользовательское имя/электронная
     attributes:
       user:
         email: Пользовательское имя/электронная почта
@@ -106,7 +115,7 @@ ru:
         car_number: Номер машины
         color: Цвет машины
         year: Год выпуска
-      tariff:
+      tariff: 
         name: Название
         times_of_day: Время суток
         range: Расстояние
@@ -114,6 +123,8 @@ ru:
       order:
         tariff: Тариф
         car: Машина
+        tariff_id: Тариф
+        car_id: Машина
         date_of_order: Дата заказа
         time_of_order: Время заказа
         departure_address: Откуда 

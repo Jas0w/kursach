@@ -1,19 +1,19 @@
 =breadcrumb_tag do
-  %li.active
-    = @order.id
   %li
     = link_to 'Заказы', orders_path
   %li
     Администрирование
+  %li.active
+    = @order.id
     
 %h1
   = @order.id
 
 %dl
   %dt= Order.human_attribute_name(:tariff)
-  %dd= @order.tariff
+  %dd= @order.tariff_id
   %dt= Order.human_attribute_name(:car)
-  %dd= @order.car
+  %dd= @order.car_id
   %dt= Order.human_attribute_name(:date_of_order)
   %dd= @order.date_of_order
   %dt= Order.human_attribute_name(:time_of_order)

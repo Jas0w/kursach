@@ -1,12 +1,11 @@
 =breadcrumb_tag do
-  %li.active
-    = @driver.fn
-    = @driver.ln
   %li
     = link_to 'Водители', drivers_path
   %li
     Администрирование
-    
+  %li.active
+    = @driver.fn
+    = @driver.ln   
 %h1
   = @driver.fn
   = @driver.ln

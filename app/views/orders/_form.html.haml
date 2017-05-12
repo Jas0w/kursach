@@ -1,10 +1,12 @@
 = form_for @order do |f|
   = error_messages_for @order
+  / = f.hidden_field(:tariff_id)
   .row
     .col-md-6
       .form-group
-        = f.label :car_id
-        = f.text_field :car_id, class: 'form-control'
+        = f.label :car_id 
+        = f.select(:car_id, options_for_select(Car.all.pluck('id, id'), f.object.car_id), 
+            {}, class: 'form-control')
         = f.error_messages_for(:car_id)
     .col-md-6
       .form-group
@@ -41,29 +43,29 @@
         = f.text_field :distance, class: 'form-control'
         = f.error_messages_for(:distance)
 
-  = f.fields_for :tariffs do |fr|
+  = f.fields_for :tariff_attributes do |fr|
     .row
       .col-md-6
         .panel.panel-success
           .panel-heading 
-            Tariff
+            Тариф
           .panel-body
             .row
               .col-md-6
                 .form-group
-                  = fr.label :name
+                  = fr.label :Имя
                   = fr.text_field :name, class: 'form-control'
+              .col-md-4
+                .form-group
+                  = fr.label :Время_суток
+                  = fr.select :times_of_day, options_for_select(['день', 'ночь']), class: 'form-control'
               .col-md-6
                 .form-group
-                  = fr.label :times_of_day
-                  = fr.text_field :times_of_day, class: 'form-control'
+                  = fr.label :Расстояние
+                  = fr.select :range, options_for_select(['в пределах МКАД', 'за МКАД', 'Подмосковье']), class: 'form-control'
               .col-md-6
                 .form-group
-                  = fr.label :range
-                  = fr.text_field :range, class: 'form-control'
-              .col-md-6
-                .form-group
-                  = fr.label :ppk
+                  = fr.label :Цена_за_километр
                   = fr.text_field :ppk, class: 'form-control'
   .form-actions
     = f.submit nil, class: 'btn btn-primary'

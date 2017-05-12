@@ -1,17 +1,16 @@
 =breadcrumb_tag do
-  %li.active
-    = @car.id
   %li
     = link_to 'Автомобили', cars_path
   %li
     Администрирование
-    
+  %li.active
+    = @car.id
 %h1
   = @car.id
 
 %dl
   %dt= Car.human_attribute_name(:driver)
-  %dd= @car.driver
+  %dd= @car.driver_id
   %dt= Car.human_attribute_name(:model)
   %dd= @car.model
   %dt= Car.human_attribute_name(:class_of_car)

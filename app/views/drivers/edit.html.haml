@@ -1,13 +1,14 @@
 =breadcrumb_tag do
+  %li
+    = link_to 'Водители', drivers_path
+  %li
+    Администрирование
   %li.active
     = t('app.drivers.edit')
   %li
     = link_to(@driver.id, @driver)
     
-%h1= t('app.drivers.edit')
+.page-header
+  %h1= t('app.drivers.edit')
 
 = render 'form'
-
-= link_to 'Показать', @driver
-\|
-= link_to 'Назад', drivers_path

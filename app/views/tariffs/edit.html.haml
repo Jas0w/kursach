@@ -1,13 +1,14 @@
 =breadcrumb_tag do
+  %li
+    = link_to 'Тарифы', tariffs_path
+  %li
+    Администрирование
   %li.active
     = t('app.tariffs.edit')
   %li
     = link_to(@tariff.id, @tariff)
     
-%h1= t('app.tariffs.edit')
+.page-header
+  %h1= t('app.tariffs.edit')
 
 = render 'form'
-
-= link_to 'Показать', @tariff
-\|
-= link_to 'Назад', tariffs_path

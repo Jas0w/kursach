@@ -1,8 +1,12 @@
 =breadcrumb_tag do
+  %li
+    = link_to 'Машины', cars_path
+  %li
+    Администрирование
   %li.active
     = t('app.cars.new')
     
-%h1= t('app.cars.new')
-= render 'form'
+.page-header
+  %h1= t('app.cars.new')
 
-= link_to 'Назад', drivers_path
+= render 'form'

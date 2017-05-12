@@ -1,10 +1,10 @@
 =breadcrumb_tag do
-  %li.active
-    = @tariff.name
   %li
     = link_to 'Тарифы', tariffs_path
   %li
     Администрирование
+  %li.active
+    = @tariff.name
     
 %h1
   = @tariff.name

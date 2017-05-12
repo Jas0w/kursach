@@ -56,7 +56,7 @@
               .col-md-6
                 .form-group
                   = car_form.label :class_of_car
-                  = car_form.select(:class_of_car, options_for_select(["бизнес", "эконом"]))
+                  = car_form.select :class_of_car, options_for_select(['бизнес', 'эконом']), class: 'form-control'
               .col-md-6
                 .form-group
                   = car_form.label :car_number
