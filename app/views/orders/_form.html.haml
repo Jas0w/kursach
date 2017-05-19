@@ -48,7 +48,21 @@
       .col-md-6
         .panel.panel-success
           .panel-heading 
-            Тариф
+            Выбрать существующий тариф
+          .panel-body
+            .row
+              .col-md-6
+                .form-group
+                  = fr.label :Тариф
+                  = fr.select(:tariff_id, options_for_select(Tariff.all.pluck('id, id'), f.object.tariff_id),{}, :onChange=>"javascript: document.getElementById('order_tariff_attributes_name').value='asia';")
+                  
+
+  = f.fields_for :tariff_attributes do |fr|
+    .row
+      .col-md-6
+        .panel.panel-success
+          .panel-heading 
+            Создать новый тариф
           .panel-body
             .row
               .col-md-6
@@ -67,6 +81,7 @@
                 .form-group
                   = fr.label :Цена_за_километр
                   = fr.text_field :ppk, class: 'form-control'
+
   .form-actions
     = f.submit nil, class: 'btn btn-primary'
 
