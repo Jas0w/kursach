@@ -54,7 +54,7 @@
               .col-md-6
                 .form-group
                   = fr.label :Тариф
-                  = fr.select(:tariff_id, options_for_select(Tariff.all.pluck('id, id'), f.object.tariff_id),{}, :onChange=>"javascript: document.getElementById('order_tariff_attributes_name').value='asia';")
+                  = fr.select(:tariff_id, options_for_select(Tariff.all.pluck('id, id').unshift(nil), f.object.tariff_id),{}, :onchange=>"javascript: myFunc(); false;", class: 'form-control')
                   
 
   = f.fields_for :tariff_attributes do |fr|

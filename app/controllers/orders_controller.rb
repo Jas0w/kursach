@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    #set_or_create_tariff(@order, order_params)
 
     respond_to do |format|
       if @order.save
@@ -67,6 +68,19 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
     end
+
+    def set_or_create_tariff(order, params)
+      if params[:tariff_id].nil?
+        order.tariff = Tariff.create(params[:tariff_attributes])
+        order.tariff_id = order.tariff.id
+      end
+    end 
+   
+
+
+
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
