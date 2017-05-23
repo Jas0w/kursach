@@ -43,18 +43,17 @@
         = f.text_field :distance, class: 'form-control'
         = f.error_messages_for(:distance)
 
-  = f.fields_for :tariff_attributes do |fr|
-    .row
-      .col-md-6
-        .panel.panel-success
-          .panel-heading 
-            Выбрать существующий тариф
-          .panel-body
-            .row
-              .col-md-6
-                .form-group
-                  = fr.label :Тариф
-                  = fr.select(:tariff_id, options_for_select(Tariff.all.pluck('id, id').unshift(nil), f.object.tariff_id),{}, :onchange=>"javascript: myFunc(); false;", class: 'form-control')
+  .row
+    .col-md-6
+      .panel.panel-success
+        .panel-heading 
+          Выбрать существующий тариф
+        .panel-body
+          .row
+            .col-md-6
+              .form-group
+                = f.label :Тариф
+                = f.select(:tariff_id, options_for_select(Tariff.all.pluck('id, id').unshift(nil), f.object.tariff_id),{}, class: 'form-control')
                   
 
   = f.fields_for :tariff_attributes do |fr|
@@ -69,14 +68,14 @@
                 .form-group
                   = fr.label :Имя
                   = fr.text_field :name, class: 'form-control'
-              .col-md-4
+              .col-md-6
                 .form-group
                   = fr.label :Время_суток
-                  = fr.select :times_of_day, options_for_select(['день', 'ночь']), class: 'form-control'
+                  = fr.select(:times_of_day, options_for_select(['день', 'ночь']), {}, class: 'form-control')
               .col-md-6
                 .form-group
                   = fr.label :Расстояние
-                  = fr.select :range, options_for_select(['в пределах МКАД', 'за МКАД', 'Подмосковье']), class: 'form-control'
+                  = fr.select(:range, options_for_select(['в пределах МКАД', 'за МКАД', 'Подмосковье']), {}, class: 'form-control')
               .col-md-6
                 .form-group
                   = fr.label :Цена_за_километр
