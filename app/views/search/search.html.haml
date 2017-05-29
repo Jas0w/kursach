@@ -1,0 +1,68 @@
+.row
+
+%table{:class => "table-hover table-responsive", :border => "2px", :style => "padding: 2px"}
+  - if @orders
+    %caption
+      Найденые записи
+    %tr
+      %th= Order.human_attribute_name(:tariff_id)
+      %th= Order.human_attribute_name(:car_id)
+      %th= Order.human_attribute_name(:date_of_order)
+      %th= Order.human_attribute_name(:time_of_order)
+      %th= Order.human_attribute_name(:departure_address)
+      %th= Order.human_attribute_name(:end_address)
+      %th= Order.human_attribute_name(:passengers)
+      %th= Order.human_attribute_name(:distance)
+
+      - @orders.each do |order|
+        %tr
+          %td= order.tariff_id
+          %td= order.car_id
+          %td= order.date_of_order
+          %td= order.time_of_order
+          %td= order.departure_address
+          %td= order.end_address
+          %td= order.passengers
+          %td= order.distance
+
+=form_tag(controller: :orders , action: :search) do 
+  .row
+    .col-md-6
+      Тариф
+      .form-group
+        = text_field_tag(:tariff_id, '', class: 'form-control')
+    .col-md-6
+      Машина
+      .form-group
+        = text_field_tag(:car_id, '', class: 'form-control')
+    .col-md-6
+      Дата заказа
+      .form-group
+        .input-group.date.datepicker
+          = text_field_tag(:date_of_order, "", class: 'form-control')
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+    .col-md-6
+      Время заказа
+      .form-group
+        = time_field_tag :time_of_order, '', class: 'form-control'
+    .col-md-6
+      Откуда
+      .form-group
+        = text_field_tag :departure_address, '', class: 'form-control'
+    .col-md-6
+      Куда
+      .form-group
+        = text_field_tag :end_address, '', class: 'form-control'
+    .col-md-6
+      Количество пассажиров
+      .form-group
+        = number_field_tag :passengers, '', class: 'form-control'
+    .col-md-6
+      Расстояние
+      .form-group
+        = text_field_tag :distance, '', class: 'form-control'
+
+  .submit
+    %br
+    =submit_tag 'Поиск', class: 'btn btn-primary'

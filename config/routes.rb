@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   post 'try_login' => 'welcome#create', :as => :try_login
   root 'welcome#index'
 
+  get 'search', to: 'orders#search'
+  post 'search', to: 'orders#search'
+
   resources :users do
     member do
       get :activate

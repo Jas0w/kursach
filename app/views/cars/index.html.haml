@@ -12,6 +12,7 @@
       = link_to t('app.cars.new-button'), new_car_path, class: 'btn btn-primary'
   %thead
     %tr
+      %th= Car.human_attribute_name(:id)
       %th= Car.human_attribute_name(:driver)
       %th= Car.human_attribute_name(:model)
       %th= Car.human_attribute_name(:class_of_car)
@@ -25,6 +26,7 @@
   %tbody
     - @cars.each do |car|
       %tr
+        %td= car.id
         %td= car.driver_id
         %td= car.model
         %td= car.class_of_car
