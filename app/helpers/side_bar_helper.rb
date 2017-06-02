@@ -30,6 +30,10 @@ module SideBarHelper
        :controller => :orders, :action => :index,
        :icon => 'mars-double',
        :class => 'long'},
+      {:name => 'Поиск',
+       :controller => :orders, :action => :search,
+       :icon => 'truck',
+       :class => 'long'},
     ]} 
     result << {
       :name => 'Заголовок ссылок',

@@ -1,29 +1,35 @@
 .row
-
-%table{:class => "table-hover table-responsive", :border => "2px", :style => "padding: 2px"}
   - if @orders
-    %caption
-      Найденые записи
-    %tr
-      %th= Order.human_attribute_name(:tariff_id)
-      %th= Order.human_attribute_name(:car_id)
-      %th= Order.human_attribute_name(:date_of_order)
-      %th= Order.human_attribute_name(:time_of_order)
-      %th= Order.human_attribute_name(:departure_address)
-      %th= Order.human_attribute_name(:end_address)
-      %th= Order.human_attribute_name(:passengers)
-      %th= Order.human_attribute_name(:distance)
-
-      - @orders.each do |order|
+    %table.table.table-hover.table-striped
+      %thead
         %tr
-          %td= order.tariff_id
-          %td= order.car_id
-          %td= order.date_of_order
-          %td= order.time_of_order
-          %td= order.departure_address
-          %td= order.end_address
-          %td= order.passengers
-          %td= order.distance
+          %th= Order.human_attribute_name(:tariff_id)
+          %th= Order.human_attribute_name(:car_id)
+          %th= Order.human_attribute_name(:date_of_order)
+          %th= Order.human_attribute_name(:time_of_order)
+          %th= Order.human_attribute_name(:departure_address)
+          %th= Order.human_attribute_name(:end_address)
+          %th= Order.human_attribute_name(:passengers)
+          %th= Order.human_attribute_name(:distance)
+      %tbody
+        - @orders.each do |u|
+          %tr
+            %td{:data => {:label => "#{Order.human_attribute_name(:tariff_id)}"}}
+              = u.tariff_id
+            %td{:data => {:label => "#{Order.human_attribute_name(:car_id)}"}}
+              = u.car_id
+            %td{:data => {:label => "#{Order.human_attribute_name(:date_of_order)}"}}
+              = u.date_of_order
+            %td{:data => {:label => "#{Order.human_attribute_name(:time_of_order)}"}}
+              = u.time_of_order
+            %td{:data => {:label => "#{Order.human_attribute_name(:departure_address)}"}}
+              = u.departure_address
+            %td{:data => {:label => "#{Order.human_attribute_name(:end_address)}"}}
+              = u.end_address
+            %td{:data => {:label => "#{Order.human_attribute_name(:passengers)}"}}
+              = u.passengers
+            %td{:data => {:label => "#{Order.human_attribute_name(:distance)}"}}
+              = u.distance
 
 =form_tag(controller: :orders , action: :search) do 
   .row
